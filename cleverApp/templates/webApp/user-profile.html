@@ -1,0 +1,120 @@
+{% extends 'webApp/base.html' %}
+{% block main_content %}
+{% load static %}
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                {% if user.is_member %}
+                <h1>{{user.username | default:"Guest" | upper}} Profile</h1>
+                {% endif %}
+                
+                <ul class="breadcrumbs">
+                    <li><a href="{% url 'Home' %}">Home</a></li>
+                    <li class="active">Profile</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- My profile start -->
+<div class="content-area my-profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- User account box start -->
+                <div class="user-account-box">
+                    <div class="header clearfix">
+                        <div class="edit-profile-photo">
+
+                          
+                            <img src="/media/{{user_detail.member.photograph }}" alt="agent-1" class="img-responsive">
+                         
+                        </div>
+                        <h3>{{user_detail.username}}</h3>
+                        <p>{{user_detail.email}}</p><br>
+
+                        {% if user.is_member and user_detail.member.photograph == ""  %}
+                        <p  style="color:magenta;">Please Upload your Photography for Admin to see &nbsp;&nbsp; <a href="{% url 'UpdateProfile' user.id %}" style="color: springgreen;"> Click here</a>
+                            &nbsp;&nbsp;
+                        <strong style="color: white">{{user.username | default:"Guest" | upper}}</strong></p>
+                        {% endif %}
+
+                        <ul class="social-list clearfix">
+                            <li>
+                                <a href="#" class="facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="rss">
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                   
+                </div>
+                <!-- User account box end -->
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <!-- My address start-->
+                <div class="my-address">
+                    <div class="main-title-2">
+                        <h1>Basic Infomation About &nbsp; <span style="color: magenta;">{{user_detail.first_name}}</span></h1>
+                    </div>
+                    <label><strong>User Name:</strong></label>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user_detail.username}}<br><br>
+                    <label><strong>First Name:</strong></label>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user_detail.first_name}}<br><br>
+                    <label><strong>Last Name:</strong></label>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user_detail.last_name}}<br><br>
+                    <label><strong>Email:</strong></label>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user_detail.email}}<br><br>
+                    <label><strong>Phone No:</strong></label>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user_detail.member.phone_no}}<br><br>
+                    <label><strong>Address:</strong></label>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user_detail.member.address}}<br><br>
+                </div>
+                <!-- My address end -->
+                {% if user.is_member %}
+                <a href="{% url 'UpdateProfile' user.id %}"><input type="submit" class="btn btn-primary" value="Edit profile"></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- My profile end -->
+
+<!-- Intro section strat -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <img src="{% static 'webApp/img/logos/logo.png' %}" alt="logo-2">
+                <h3>Begin Your journey to becoming a property owner today</h3>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a href="{% url 'Contact' %}" class="btn button-md button-theme">Contact Us Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+{% endblock %}

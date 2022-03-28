@@ -1,0 +1,105 @@
+.main-btn1 {
+  /*   background: #6985c4; */
+  background: rgb(255, 102, 0);
+  color: white;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: fixed;
+  box-sizing: border-box;
+  border: 2px solid rgb(255, 102, 0);
+  bottom: 10px;
+  right: 10px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  z-index: 10;
+  transition: 0.7s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sub-btns > div .fa {
+  font-size: 15px;
+  color: yellowgreen;
+  text-shadow: 0 0 10px white;
+}
+
+.sub-btns {
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 9;
+}
+
+.sub-btns > div {
+  box-sizing: border-box;
+  background: #ffffff;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid orangered;
+  transition: 0.7s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h3, h5 {
+ margin-bottom: 20px;
+}
+
+.btn2 {
+  bottom: 60px;
+}
+
+.btn3 {
+  bottom: 120px;
+}
+
+.btn4 {
+  bottom: 180px;
+}
+
+.touch {
+  height: 50px !important;
+  width: 50px !important;
+  font-family: "poppins";
+}
+
+.btn5 {
+  bottom: 240px;
+  left: 5px;
+}
+
+.btn6 {
+  bottom: 290px;
+  left: 5px;
+}
+
+.btn7 {
+  bottom: 340px;
+  left: 5px;
+}
+
+.btn8 {
+  bottom: 390px;
+  left: 5px;
+}
+
+.btn9 {
+  bottom: 440px;
+  left: 5px;
+}
+/* ::-webkit-scrollbar-thumb {
+    background: #1d1745;
+    border-radius: 10px;
+}
+::-webkit-scrollbar {
+    width: 10px;
+} */

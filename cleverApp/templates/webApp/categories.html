@@ -1,0 +1,217 @@
+
+{% extends 'webApp/base.html' %}
+{% block main_content %}
+{% load static %}
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <h1>Properties Category</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="active">Properties Category</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Properties section body start -->
+<div class="properties-section content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-xs-12">
+              
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    {% if category_post %}
+					{% for post in category_post %}
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp delay-03s">
+                        <!-- Property start -->
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <div class="property-tag button alt featured">Featured</div>
+                                <div class="property-tag button sale">{{post.property_status}}</div>
+                                <div class="property-price"></div>
+                                <img src="/media/{{ post.Main_building }}" alt="fp" class="img-responsive" style="width: 500px; height: 300px;">
+                                <div class="property-overlay">
+                                    <a href="/media/{{ post.Main_building }}" class="overlay-link">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <a class="overlay-link property-video" title="Lexus GS F">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href=" static /storage.googleapis.com/theme-vessel/template-images/nest-html/assets/img/properties/properties-1.jpg " class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+
+                                        <a href="../../storage.googleapis.com/theme-vessel/template-images/nest-html/assets/img/properties/properties-2.jpg" class="hidden"></a>
+                                        <a href="../../storage.googleapis.com/theme-vessel/template-images/nest-html/assets/img/properties/properties-3.jpg" class="hidden"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Property content -->
+                            <div class="property-content">
+                                <!-- info -->
+                                <div class="info">
+                                    <!-- title -->
+                                    <h1 class="title">
+                                        <a href="property_detail/{{post.id}}">{{post.property_title}}</a>
+                                    </h1>
+                                    <!-- Property address -->
+                                    <h3 class="property-address">
+                                        <a href="property_detail/{{post.id}}">
+                                            <i class="fa fa-map-marker"></i>{{post.property_address}}
+                                        </a>
+                                    </h3>
+                                    <!-- Facilities List -->
+                                    <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
+                                            <span>{{post.property_category}}</span>
+                                            
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-bed"></i>
+                                            <span>Clever-Biz </span>
+                                        </li>
+                                      
+                                    </ul>
+                                </div>
+                                <!-- Property footer -->
+                                <div class="property-footer">
+                                <span class="left">
+                                    <a href="#"><i class="fa fa-user"></i>{{post.Poster_Name}}</a>
+                                </span>
+                                    <span class="right">
+                                    <i class="fa fa-calendar"></i>{{post.published_date}}
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Property end -->
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                 <!-- Page navigation start -->
+                 <div class="text-center">
+                    <nav aria-label="Page navigation">
+                        {% if is_paginated %}
+                        <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}"aria-label="Previous">
+                            <span aria-hidden="true">«</span></a></li>
+                        {% endif %}
+    
+                        {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                        <li class="active"><a href="?page={{num}}">{{ num }}</a></li>
+                        {% else %}
+                        <li><a href="?page={{num}}">{{ num }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">»</span></a></li>
+                        {% else %}
+                        <li><a href="?page={{ page_obj.paginator.num_pages }}" aria-label="Next">
+                            <span aria-hidden="true">»</span></a></li>
+                        {% endif %}
+                        {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Page navigation end-->
+            </div>
+
+
+            <div class="col-lg-4 col-md-4 col-xs-12">
+                <!-- Search contents sidebar start -->
+               
+                <!-- Category posts start -->
+                <div class="sidebar-widget category-posts">
+                    <div class="main-title-2">
+                        <h1>Popular Category</h1>
+                    </div>
+                    <ul class="list-unstyled list-cat">
+                        <li><a href="{% url 'properties' %}">Residential </a> <span>  </span></li>
+                        <li><a href="{% url 'properties' %}">Commercial  </a> <span>  </span></li>
+                        <li><a href="{% url 'properties' %}">Other </a> <span> </span></li>
+                       
+                    </ul>
+                </div>
+                <!-- Popular posts start -->
+                <div class="sidebar-widget popular-posts">
+                    <div class="main-title-2">
+                        <h1>Recent  Properties</h1>
+                    </div>
+                    {% for post in recent_properties %}
+                    <div class="media">
+                      
+                        <div class="media-left">
+                            <img class="media-object" src="/media/{{ post.Main_building }}" alt="small-properties-1">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">
+                                <a href="property_detail/{{post.id}}">{{post.property_status}}</a>
+                            </h3>
+                            <div class="listing-post-meta">
+                                <!-- Aug 18, 2020 | <a href="#">$485,00</a> -->
+                                {{post.published_date}}
+                            </div>
+                        </div>
+                       
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+                <!-- Helping box Start -->
+                <div class="sidebar-widget helping-box clearfix">
+                    <div class="main-title-2">
+                        <h1>Helping Center</h1>
+                    </div>
+                    <div class="helping-center">
+                        <div class="icon"><i class="fa fa-map-marker"></i></div>
+                        <h4>Office Address</h4>
+                        <p>Clever-Biz-Plaza Along Idi-Mango Road, Afobaja Junction, Adigbe Abeokuta, Ogun-State</p>
+                      
+                    </div>
+                    <div class="helping-center">
+                        <div class="icon"><i class="fa fa-phone"></i></div>
+                        <h4>Phone</h4>
+                        <p><a href="tel:+55-417-634-7071">+234 808 8735 444</a> </p>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+<!-- properties section end -->
+
+<!-- Intro section strat -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <img src="{% static 'webApp/img/logos/logo.png' %}" alt="logo-2">
+                <h3>Begin Your journey to becoming a property owner today</h3>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a href="{% url 'Contact' %}" class="btn button-md button-theme">Contact Us Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+{% endblock %}

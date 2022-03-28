@@ -1,0 +1,274 @@
+{% extends 'webApp/base.html' %}
+{% block main_content %}
+{% load static %}
+
+
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <h1>Properties Details</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="active">Property Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Properties details page start -->
+<div class="properties-details-page content-area">
+    <div class="container">
+        <div class="row mb-20">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <!-- Header -->
+                <div class="heading-properties clearfix sidebar-widget">
+                    <div class="pull-left">
+                        <h3>{{post_detail.property_title}}</h3>
+                        <p>
+                            <i class="fa fa-map-marker"></i>{{post_detail.property_address}}
+                        </p>
+                    </div>
+                    <div class="pull-right">
+                        <h3><span> The Price</span></h3>
+                        <h5>
+                           Contact the office
+                        </h5>
+                    </div>
+                </div>
+                <!-- Properties details section start -->
+                <div class="sidebar-widget mb-40">
+                    <!-- Properties detail slider start -->
+                    <div class="properties-detail-slider simple-slider mb-40">
+                        <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-outer">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="/media/{{ post_detail.Main_building }}" class="thumb-preview" alt="Chevrolet Impala" style="width: 700px; height: 500px;">
+                                    </div>
+                                     <div class="item">
+                                        <img src="/media/{{ post_detail.sub_building1 }}" class="thumb-preview" alt="Chevrolet Impala" style="width: 700px; height: 500px;">
+                                    </div>
+                                    <div class="item">
+                                        <img src="/media/{{ post_detail.sub_building2 }}" class="thumb-preview" alt="Chevrolet Impala" style="width: 700px; height: 500px;">
+                                    </div>
+                                    <div class="item">
+                                        <img src="/media/{{ post_detail.sub_building3 }}" class="thumb-preview" alt="Chevrolet Impala" style="width: 700px; height: 500px;">
+                                    </div>
+                                    <div class="item">
+                                        <img src="/media/{{ post_detail.sub_building4 }}" class="thumb-preview" alt="Chevrolet Impala" style="width: 700px; height: 500px;">
+                                    </div> 
+                                    <div class="item">
+                                        <img src="/media/{{ post_detail.sub_building2 }}" class="thumb-preview" alt="Chevrolet Impala" style="width: 700px; height: 500px;">
+                                    </div>
+                                    <div class="item">
+                                        <img src="/media/{{ post_detail.sub_building3 }}" class="thumb-preview" alt="Chevrolet Impala" style="width: 700px; height: 500px;">
+                                    </div>
+                                    <div class="item">
+                                        <img src="/media/{{ post_detail.sub_building4 }}" class="thumb-preview" alt="Chevrolet Impala" style="width: 700px; height: 500px;">
+                                    </div>
+                                </div>
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev">
+                                    <span class="slider-mover-left no-bg t-slider-r pojison" aria-hidden="true">
+                                        <i class="fa fa-angle-left"></i>
+                                    </span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-custom" role="button" data-slide="next">
+                                    <span class="slider-mover-right no-bg t-slider-l pojison" aria-hidden="true">
+                                        <i class="fa fa-angle-right"></i>
+                                    </span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators thumbs visible-lg visible-md">
+                                <li data-target="#carousel-custom" data-slide-to="0" class=""><img src="/media/{{ post_detail.sub_building1 }}" alt="Chevrolet Impala" style="height: 70px; width: 80px;"></li>
+                                <li data-target="#carousel-custom" data-slide-to="1" class=""><img src="/media/{{ post_detail.sub_building2 }}" alt="Chevrolet Impala" style="height: 70px; width: 80px;"></li>
+                                <li data-target="#carousel-custom" data-slide-to="2" class=""><img src="/media/{{ post_detail.sub_building3 }}" alt="Chevrolet Impala" style="height: 70px; width: 80px;"></li>
+                                <li data-target="#carousel-custom" data-slide-to="3" class=""><img src="/media/{{ post_detail.sub_building4 }}" alt="Chevrolet Impala" style="height: 70px; width: 80px;"></li>
+                                <li data-target="#carousel-custom" data-slide-to="0" class=""><img src="/media/{{ post_detail.sub_building1 }}" alt="Chevrolet Impala" style="height: 70px; width: 80px;"></li>
+                                <li data-target="#carousel-custom" data-slide-to="1" class=""><img src="/media/{{ post_detail.sub_building2 }}" alt="Chevrolet Impala" style="height: 70px; width: 80px;"></li>
+                                <li data-target="#carousel-custom" data-slide-to="2" class=""><img src="/media/{{ post_detail.sub_building3 }}" alt="Chevrolet Impala" style="height: 70px; width: 80px;"></li>
+                                <li data-target="#carousel-custom" data-slide-to="3" class=""><img src="/media/{{ post_detail.sub_building4 }}" alt="Chevrolet Impala" style="height: 70px; width: 80px;"></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- Properties detail slider end -->
+
+                    <!-- Advanced search start -->
+                   
+
+                    <!-- Properties description start -->
+                    <div class="properties-description mb-40 ">
+                        <div class="main-title-2">
+                            <h1><span>Property Description</span></h1>
+                        </div>
+                        <p>{{post_detail.property_discription | safe}}</p>
+                      
+                         </div>
+
+                         {% if user.is_authenticated %}
+                        {% if post_detail.Poster_Name.id == user.id or user.is_superuser %}
+                        
+                        <a href="{% url 'update' pk=post_detail.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'delete' pk=post_detail.pk %}" class="btn btn-danger">Delete</a>
+                        {% endif %}
+                        {% endif %}
+
+                    <!-- Properties description end -->
+
+                    <!-- Properties condition start -->
+                    <!-- <div class="properties-condition mb-40 ">
+                        <div class="main-title-2">
+                            <h1><span>Condition</span></h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <ul class="condition">
+                                    <li>
+                                        <i class="flaticon-bed"></i>3 Beds
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-holidays"></i>Bathroom
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <ul class="condition">
+                                    <li>
+                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>4800 sq ft
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-monitor"></i>TV
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <ul class="condition">
+                                    <li>
+                                        <i class="flaticon-vehicle"></i>1 Garage
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-building"></i>Balcony
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Properties condition end -->
+
+                  
+                </div>
+                <!-- Properties details section end -->
+
+                <!-- Floor plans start -->
+                <!-- <div class="floor-plans sidebar-widget">
+                    <div class="main-title-2">
+                        <h1><span>Floor Plans</span></h1>
+                    </div>
+                    <table>
+                        <tbody><tr>
+                            <td><strong>Size</strong></td>
+                            <td><strong>Rooms</strong></td>
+                            <td><strong>2 Bathrooms</strong></td>
+                        </tr>
+                        <tr>
+                            <td>1600</td>
+                            <td>3</td>
+                            <td>2</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                  
+                </div> -->
+                <!-- Floor plans end -->
+
+               
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+               
+                <div class="sidebar right">
+                  
+
+                    <!-- Social media start -->
+                    <div class="social-media sidebar-widget clearfix">
+                        <!-- Main Title 2 -->
+                        <div class="main-title-2">
+                            <h1><span>Social</span> Media</h1>
+                        </div>
+                        <!-- Social list -->
+                        <ul class="social-list">
+                            <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>
+                        </ul>
+                    </div>
+
+                   
+                    <!-- Helping center start -->
+                    <div class="sidebar-widget helping-box clearfix">
+                        <div class="main-title-2">
+                            <h1>Helping Center</h1>
+                        </div>
+                        <div class="helping-center">
+                            <div class="icon"><i class="fa fa-map-marker"></i></div>
+                            <h4>Office Address</h4>
+                            <span>Clever-Biz-Plaza Along Idi-Mango Road, Afobaja Junction, Adigbe Abeokuta, Ogun-State</span>
+                        </div>
+                        <div class="helping-center">
+                            <div class="icon"><i class="fa fa-phone"></i></div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+2348088735444">+234 808 8735 444</a> </p>
+                        </div>
+                    </div>
+
+                  
+
+                    <!-- Latest tweet start -->
+                    <div class="sidebar-widget latest-tweet">
+                        <div class="main-title-2">
+                            <!-- <h1><span>Latest</span> Tweet</h1> -->
+                        </div>
+                        <!-- <p><a href="#">@Lorem ipsum dolor</a> sit amet, consectetur adipiscing elit. Aenean id dignissim justo. Maecenas urna lacus, bibendum </p>
+                        <p>@Lorem ipsum dolor<a href="#">sit amet, consectetur</a> adipiscing elit. Aenean id dignissim justo. Maecenas urna lacus, bibendum quis orci </p> -->
+                    </div>
+                </div>
+                <!-- Sidebar end -->
+            </div>
+        </div>
+
+        
+        
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Properties details page end -->
+
+<!-- Intro section strat -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <img src="{% static 'webApp/img/logos/logo.png' %}" alt="logo-2">
+                <h3>Begin Your journey to becoming a property owner today</h3>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a href="{% url 'Contact' %}" class="btn button-md button-theme">Contact Us Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+{% endblock %}

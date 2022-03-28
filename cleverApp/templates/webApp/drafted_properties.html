@@ -1,0 +1,73 @@
+{% extends 'webApp/base.html' %}
+{% block main_content %}
+{% load static %}
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <h1>Drafted Properties</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="active">Drafted Properties</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<br><br>
+<div class="box-body no-padding mt-5 mb-4">
+    <div class="table-responsive">
+        <table class="table table-hover">
+                       
+            <tr>
+            <th>Id</th>
+            <th>Main Buiding</th>
+            <th>Title</th>
+            <th>Proper Discription</th>
+            <th>Action</th>
+            </tr>
+      
+       
+            {% for draft in drafts %}
+            <tr>
+            <td>{{ draft.id }}</td>
+            <td><img src="/media/{{ draft.Main_building }}" alt="Image" style="width: 300px;"></td>
+            <td>{{ draft.property_title}}</td>
+            <td>{{ draft.property_discription }}</td>
+            <td><a href="{% url 'publish' pk=draft.pk %}" class="px-10 pt-15 pb-10"><div class="btn btn-success py-2"><span style="color: white;">Publish</span></a></div>
+                
+                <br><br>
+                <a href="{% url 'update' pk=draft.pk %}" class="px-10 pt-15 pb-10"><div class="btn btn-primary py-2"><span style="color: white;">Update</span></a></div>
+                
+                <br><br>
+                <a href="{% url 'delete' pk=draft.pk %}" class="px-10 pt-15 pb-10"><div class="btn btn-danger py-2"><span style="color: white;">Delete</span></a></div>
+            </tr>
+            {% endfor %}
+    </table>
+    </div>
+</div>
+
+<br><br>
+
+<!-- Intro section strat -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <img src="{% static 'webApp/img/logos/logo.png' %}" alt="logo-2">
+                <h3>Begin Your journey to becoming a property owner today</h3>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a href="{% url 'Contact' %}" class="btn button-md button-theme">Contact Us Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+{% endblock %}

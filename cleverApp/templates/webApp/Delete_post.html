@@ -1,0 +1,78 @@
+{% extends 'webApp/base.html' %}
+{% block main_content %}
+{% load static %}
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <h1>Staffs List</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="active">Staffs List</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<section class="sign-up-area ptb-100">
+               
+    
+    
+    {% if user.is_authenticated %}
+    {% if post.Poster_Name.id == user.id or user.is_superuser %}
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-12">
+                <div class="contact-form-action">
+                    <div class="form-heading text-center">
+                      
+
+
+
+                       
+                        
+                        <h3 class="form-desc" style="color: red;">Are you sure you want to delete this post?</h3>
+                        
+                       
+                    </div>
+                   
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <center><button type="submit" class="btn btn-danger" value="Yes Delete" style="height: 40px; width: 70px;"> Yes</button> 
+                        <a href="{% url 'properties'  %}" class="btn btn-primary">No Cancel</a></center>
+                    </form>
+                    
+                </div>
+            </div>
+            {% else %}
+        </div>
+        
+        {% endif %}
+        
+        {% endif %}
+    </div>
+</section>
+<!-- Intro section strat -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <img src="{% static 'webApp/img/logos/logo.png' %}" alt="logo-2">
+                <h3>Begin Your journey to becoming a property owner today</h3>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a href="{% url 'Contact' %}" class="btn button-md button-theme">Contact Us Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+{% endblock %}

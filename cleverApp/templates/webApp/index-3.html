@@ -1,0 +1,452 @@
+
+{% extends 'webApp/base.html' %}
+{% block main_content %}
+{% load static %}
+
+
+<!-- Banner start -->
+<div class="banner">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item item-100vh active">
+                <img src="{% static 'webApp/img/banner/img-7.jpg' %}" alt="banner-slider-1">
+                <div class="carousel-caption banner-slider-inner">
+                    <div class="banner-content bc-2 container banner-content-left">
+                        <h1 data-animation="animated fadeInDown delay-05s">Find your Dream House</h1>
+                        <!-- <p data-animation="animated fadeInUp delay-1s">Allow us to guide you through the innovative stress free approach<br class="n-786"> in finding your dream Properties.</p> -->
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Get Started Now</a>
+                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-100vh">
+                <img src="{% static 'webApp/img/banner/img-9.jpg' %}" alt="banner-slider-2">
+                <div class="carousel-caption banner-slider-inner">
+                    <div class="banner-content bc-2 container banner-content-left">
+                        <h1 data-animation="animated fadeInDown delay-1s">Sweet Home For Sweet  Family</h1>
+                        <!-- <p data-animation="animated fadeInUp delay-1s">Allow us to guide you through the innovative stress free approach<br class="n-786"> in finding your dream Properties.</p> -->
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Get Started Now</a>
+                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-100vh">
+                <img src="{% static 'webApp/img/banner/img-12.jpg' %}" alt="banner-slider-3">
+                <div class="carousel-caption banner-slider-inner">
+                    <div class="banner-content bc-2 container banner-content-left">
+                        <h1 data-animation="animated fadeInDown delay-1s">Beautiful Home For Sale</h1>
+                        <!-- <p data-animation="animated fadeInUp delay-1s">Allow us to guide you through the innovative stress free approach<br class="n-786"> in finding your dream Properties.</p> -->
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Get Started Now</a>
+                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-100vh">
+                <img src="{% static 'webApp/img/banner/img-13.jpg' %}" alt="banner-slider-2">
+                <div class="carousel-caption banner-slider-inner">
+                    <div class="banner-content bc-2 container banner-content-left">
+                        <h1 data-animation="animated fadeInDown delay-1s">Sweet Home For Sweet Family</h1>
+                        <!-- <p data-animation="animated fadeInUp delay-1s">Allow us to guide you through the innovative stress free approach<br class="n-786"> in finding your dream Properties.</p> -->
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Get Started Now</a>
+                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="slider-mover-left" aria-hidden="true">
+                <i class="fa fa-angle-left"></i>
+            </span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="slider-mover-right" aria-hidden="true">
+                <i class="fa fa-angle-right"></i>
+            </span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+<!-- Intro section strat -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <img src="{% static 'webApp/img/logos/logo.png' %}" alt="logo-2">
+                <h3>Begin Your journey to becoming a property owner today</h3>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a href="{% url 'Contact' %}" class="btn button-md button-theme">Contact Us Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+
+
+
+<!-- Featured properties start -->
+<div class="content-area featured-properties">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Featured Properties</h1>
+        </div>
+       
+        <div class="row wow fadeInUp delay-04s">
+            <div class="filtr-container">
+                {% for post in post_list %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="1, 2, 3">
+                    <div class="property-3">
+                        <div class="blog-photo">
+                            <img src="/media/{{ post.Main_building }}" alt="photo" class="img-responsive">
+                        </div>
+                        <div class="featured-tag2">Featured</div>
+                        <div class="sale-tag">{{post.property_status}}</div>
+                        <div class="ling-section">
+                          
+                            <h3>
+                                <a href="{% url 'property_detail' post.id %}">{{post.property_title}}<pan style="color:yellowgreen;" >&nbsp;&nbsp; Details</pan></a>
+                            </h3>
+                            <ul class="facilities-list">
+                                <li>{{post.property_category}}</li>
+                                <li>Clever-Biz</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured properties end -->
+
+<!-- Page navigation start -->
+<div class="text-center">
+    <nav aria-label="Page navigation">
+        {% if is_paginated %}
+        <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}"aria-label="Previous">
+            <span aria-hidden="true">«</span></a></li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <li class="active"><a href="?page={{num}}">{{ num }}</a></li>
+        {% else %}
+        <li><a href="?page={{num}}">{{ num }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+            <span aria-hidden="true">»</span></a></li>
+        {% else %}
+        <li><a href="?page={{ page_obj.paginator.num_pages }}" aria-label="Next">
+            <span aria-hidden="true">»</span></a></li>
+        {% endif %}
+        {% endif %}
+        </ul>
+    </nav>
+</div>
+<!-- Page navigation end-->
+
+
+
+<!-- Our service start -->
+<div class="mb-100 our-service">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1><span>What We Believe:</span> </h1>
+        </div>
+        <div class="row mgn-btm wow">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
+                <div class="content">
+                    <i class="flaticon-apartment"></i>
+                    <h4>TRUST</h4>
+                    <p>Businesses are built on integrity, honesty and most importantly trust. We will continue to fuel our trust reservoirs, as we believe that is the foundation upon which we can build a sustainable business to the benefit of all our stakeholders. </P>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
+                <div class="content">
+                    <i class="flaticon-internet"></i>
+                    <h4>ACCOUNTABILITY</h4>
+                    <p>As a firm we will remain accountable to all our stakeholders regarding decisions, actions, policies and outcomes. We understand the importance of transparency  and we will continually uphold this as a key virtue in our relationships.</P>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
+                <div class="content">
+                    <i class="flaticon-vehicle"></i>
+                    <h4>Garages</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</P>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
+                <div class="content">
+                    <i class="flaticon-symbol"></i>
+                    <h4>Commercial</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</P>
+                </div>
+            </div>
+            <div class="col-lg-12 col-sm-12 text-center wow fadeInUp delay-04s">
+                <a href="{% url 'Services' %}" class="btn btn-outline-2">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Our service end -->
+
+<!-- Recently properties start -->
+<div class="content-area-13 recently-properties chevron-icon">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Recently Properties</h1>
+        </div>
+        <div class="row wow fadeInUp delay-04s">
+            <div class="carousel our-partners slide" id="ourPartners4">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        {% for post in recent_properties %}
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <!-- Property 2 start -->
+                            <div class="property-2">
+                                <!-- Property img -->
+                                <div class="property-img">
+                                    <div class="listing-badges">
+                                        <span class="featured active">{{post.property_status}}</span>
+                                    </div>
+                                    <div class="price-ratings">
+                                        <div class="price"></div>
+                                    </div>
+                                    <img src="/media/{{ post.Main_building }}" alt="rp" class="img-responsive" style="width: 300px; height: 200px;">
+                                </div>
+                                <!-- content -->
+                                <div class="content">
+                                    <!-- title -->
+                                    <h4 class="title">
+                                        <a href="{% url 'property_detail' post.id %}">{{post.property_title}}</a>
+                                    </h4>
+                                    <!-- Property address -->
+                                    <h3 class="property-address">
+                                        <a href="{% url 'property_detail' post.id %}">
+                                            <i class="fa fa-map-marker"></i>{{post.property_address}}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                    <li>
+                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
+                                        <span>{{post.property_category}}</span>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-bed"></i>
+                                        <span>Clever-Biz</span>
+                                    </li>
+                                    <li>
+                                       
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Property 2 end -->
+                        </div>
+                        {% endfor %}
+                    </div>
+                   
+                </div>
+                <div class="slick-btn-section">
+                    <div class="slick-btn">
+                        <div class="slick-prev slick-arrow-buton-2 sab-4">
+                            <a class="left carousel-control" href="#ourPartners4" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
+                        </div>
+                        <div class="slick-next slick-arrow-buton-2 sab-3">
+                            <a class="right carousel-control" href="#ourPartners4" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Recently Partners block end -->
+
+<!-- Counters strat -->
+<div class="counters overview-bgi">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 wow fadeInLeft delay-04s">
+                <div class="counter-box">
+                    <i class="flaticon-tag"></i>
+                    <h1 class="counter">{{post_count}}</h1>
+                    <p>Listings For Sale</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInLeft delay-04s">
+                <div class="counter-box">
+                    <i class="flaticon-symbol-1"></i>
+                    <h1 class="counter">{{post_count}}</h1>
+                    <p>Listings For Rent</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- Counters end -->
+
+<!-- Testimonials 2 -->
+<div class="clearfix"></div>
+<!-- Testimonials 2 -->
+<div class="testimonials-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="sec-title-three">
+                    <h2>Who we are</h2>
+                    <p>At Clever-Biz, Our residents and houses owners rest comfortably knowing they are in the hands of caring professionals and Trustworthy.</p>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="carousel our-partners slide" id="ourPartners3">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <!-- Testimonials box start -->
+                                    <div class="testimonials-box">
+                                        <!-- Detail -->
+                                        <div class="media-body">
+                                            <h3 class="media-heading">
+                                                <a href="#">OUR VALUES</a>
+                                            </h3>
+                                        </div>
+                                        <div class="detail clearfix">
+                                            <br>
+                                            <P>Communication, commitment, and client care and core values that emanate throughout every activity that we undertake. By listening and taking the time to understand our clients need, we are able to commit to delivering comprehensive holistic advice that consistently delivers exceptional results and optimizes the value of our clients’ property assets, production and other services at home and abroad. </P>
+                                            <div class="media">
+                                                <div class="media-left">
+                                                   
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Testimonials box end -->
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <!-- Testimonials box start -->
+                                    <div class="testimonials-box">
+                                        <!-- Detail -->
+                                        <div class="media-body">
+                                            <h3 class="media-heading">
+                                                <a href="#">OUR MISSION</a>
+                                            </h3>
+                                         
+                                        </div>
+                                        <div class="detail clearfix"><br>
+                                            <P> We hope to achieve our vision by creating energetic, positive results driven, work environment, focused on the investment and development of long term relationship.
+                                                Our success is built on our commitment to offering superior customers services and with such breadth of coverage, at home and abroad and best spoke service of fast growing business with the international brand.
+                                                 </P>
+                                            <div class="media">
+                                                <div class="media-left">
+                                                   
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Testimonials box end -->
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <!-- Testimonials box start -->
+                                    <div class="testimonials-box">
+                                        <!-- Detail -->
+                                        <div class="media-body">
+                                            <h3 class="media-heading">
+                                                <a href="#">OUR VISION</a>
+                                            </h3>
+                                            <!-- <p>Web Designer, Uk</p> -->
+                                        </div>
+                                        <div class="detail clearfix"><br>
+                                            <P>Our vision is to become the region’s most recognized real estate service provider,  automobile sales, building materials service provider such as (ties, roof, security doors etc), import and export service provider.</P>
+                                            <div class="media">
+                                                <div class="media-left">
+                                                   
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Testimonials box end -->
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <!-- Testimonials box start -->
+                                    <div class="testimonials-box">
+                                        <!-- Detail -->
+                                        <div class="media-body">
+                                            <h3 class="media-heading">
+                                                <a href="#">OUR OBJECTIVES</a>
+                                            </h3>
+                                        </div>
+                                        <div class="detail clearfix"><br>
+                                            <P>Our objectives is to engage efficiently, responsibly and profitably in Real Estate and other selected businesses
+                                                We participate in the search for and development of property to meet evolving client’s needs and the country’s growing demand for properties.</P>
+                                            <div class="media">
+                                                <div class="media-left">
+                                                  
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Testimonials box end -->
+                                  
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="slick-btn">
+                            <div class="slick-prev slick-arrow-buton-2 sab-4">
+                                <a class="left carousel-control" href="#ourPartners3" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
+                            </div>
+                            <div class="slick-next slick-arrow-buton-2 sab-3">
+                                <a class="right carousel-control" href="#ourPartners3" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<!-- Testimonial 2 end -->
+
+<div class="clearfix"></div>
+
+
+
+{% endblock %}
+
+
+
+
+
+

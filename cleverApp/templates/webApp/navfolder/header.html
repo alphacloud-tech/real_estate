@@ -1,0 +1,136 @@
+
+{% load static %}
+<!--=====================================-->
+<!--=            Navbar Start           =-->
+<!--=====================================-->
+
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNL8QV6"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="page_loader"></div>
+
+
+<!-- Top header start -->
+<header class="top-header hidden-xs" id="top">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <div class="list-inline">
+	  <a href="tel:08088735444"><i class="fa fa-phone"></i>08088735444</a>
+	  <a href="tel:info@cleverbiz.com.ng"><i class="fa fa-envelope"></i>info@cleverbiz.com.ng</a>
+  </div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  <ul class="top-social-media pull-right">
+	{% if not user.is_authenticated %}
+	  <li>
+		  <a href="{% url 'login' %}" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
+	  </li>
+	  <li>
+		  <a href="{% url 'signup' %}" class="sign-in"><i class="fa fa-user"></i> Register</a>
+	  </li>
+	  {% else %}
+	  <li>
+		<a href="{% url 'logout' %}" class="sign-in"><i class="fa fa-user"></i> Logout</a>
+	</li>
+	{% endif %}
+  </ul>
+</div>
+</div>
+</div>
+</header>
+<!-- Top header end -->
+
+<!-- Main header start -->
+<header class="main-header">
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navigation" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="{% url 'Home' %}" class="logo">
+					<img src="{% static 'webApp/img/logos/logo.png' %}" alt="adams">
+				</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
+			<ul class="nav navbar-nav">
+				{% with url_name=request.resolver_match.url_name %}
+				<!-- <li class="dropdown {% if urname == 'home' %} active {% endif %}"> -->
+				<li class="dropdown {% if url_name == 'Home' %} active {% endif %}"><a href="{% url 'Home' %}">Home </a></li>
+				</li>
+				<li class="dropdown {% if url_name == 'properties' %} active {% endif %}"><a href="{% url 'properties' %}">Properties</a></li>
+				<li class="dropdown {% if url_name == 'Services' %} active {% endif %}"><a href="{% url 'Services' %}">Services </a></li>
+				<li class="dropdown {% if url_name == 'About' %} active {% endif %}"><a href="{% url 'About' %}">About </a></li>
+				<li class="dropdown {% if url_name == 'Contact' %} active {% endif %}"><a href="{% url 'Contact' %}">Contact </a></li> 
+
+				{% if not user.is_authenticated %}
+				<li>
+					<a href="{% url 'login' %}" class="sign-in" style="color: orange;"><i class="fa fa-sign-in"></i> Login</a>
+				</li>
+				<li>
+					<a href="{% url 'signup' %}" class="sign-in" style="color: orange;"><i class="fa fa-user"></i> Register</a>
+				</li>
+				{% else %}
+				<li>
+				<a href="{% url 'logout' %}" class="sign-in" style="color: orange;"><i class="fa fa-user"></i> Logout</a>
+				</li>
+				{% endif %}
+
+				<li class="dropdown ">
+					<a tabindex="0" href="#" data-toggle="dropdown" data-submenu="" aria-expanded="false"></i><i class="fa fa-user"></i> Admin <span class="caret"></span></a>
+
+					<ul class="dropdown-menu">
+						{% if user.is_member %}
+						<li><a href="{% url 'MemberProfile' user.id %}">My Profile</a></li>
+						{% endif %}
+
+						{% if user.is_superuser %}
+						<li><a href="{% url 'users' %}">Users</a></li>
+						<li><a href="{% url 'add_category' %}">Add Category</a></li>
+						<li><a href="{% url 'drafted_properties' %}">Drafted Properties</a></li>
+						<li><a href="{% url 'staffs' %}">Staffs List</a></li>
+						{% endif %}
+
+						{% if user.is_staff %}
+						{% if user.is_superuser or user.is_member %}
+						<li><a href="{% url 'Post_form' %}">Post Properties</a></li>
+						{% endif %}
+						{% endif %}
+
+					</ul>
+				</li>
+
+					<li>
+					{% if user.is_member or user.is_superuser %}
+					<a style=" color:orangered ">Welcome: {{user.username|default:"Guest" }}</a>
+					{% endif %}
+					</li>
+					{% endwith %}	
+				</ul>
+
+			
+			<!-- <ul class="nav navbar-nav navbar-right rightside-navbar">
+				<li>
+					<a href="submit-property.html" class="button">
+						Submit Property
+					</a>
+				</li>
+			</ul> -->
+			</div>
+			
+		</nav>
+	</div>
+</header>
+<!-- Main header end -->
+<!--=====================================-->
+<!--=              Navbar End           =-->
+<!--=====================================-->

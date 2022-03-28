@@ -1,0 +1,82 @@
+{% extends 'webApp/base.html' %}
+{% block main_content %}
+{% load static %}
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <h1>Staffs List</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="active">Staffs List</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<br><br>
+<div class="box-body no-padding mt-5 mb-4">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th> ID</th>
+                <th> User Names</th>
+                <th> Phone Numbers</th>
+                <th>  Emails</th>
+                <th> Full Details</th>
+            </tr>
+            
+        
+            {% for member in members %}
+            <tr>
+                {% if member.is_member %}
+                <td> {{member.user.id}}</td>
+                {% endif %}
+
+                {% if member.is_member %}
+                <td>{{member.username}}</td>
+                {% endif %}
+
+                {% if member.is_member %}
+                <td>{{member.member.phone_no}}</td>
+                {% endif %}
+
+                {% if member.is_member %}
+                <td>{{member.email}}</td>
+                    {% endif %}	
+
+
+                {% if member.is_member %}
+                <td><a href="{% url 'MemberProfile' member.id %}" class="waves-effect waves-light btn btn-block btn-primary">Full Detail</a></td>
+                {% endif %} 
+            </tr>
+            {% endfor %}
+            
+          </table>
+    </div>
+</div>
+
+<br><br>
+
+<!-- Intro section strat -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <img src="{% static 'webApp/img/logos/logo.png' %}" alt="logo-2">
+                <h3>Begin Your journey to becoming a property owner today</h3>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a href="{% url 'Contact' %}" class="btn button-md button-theme">Contact Us Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+{% endblock %}

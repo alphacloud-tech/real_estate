@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TNL8QV6');</script>
+
+<!-- End Google Tag Manager -->
+<title>Clever-Biz- Real Estate HTML Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+
+<!-- External CSS libraries -->
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/animate.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/bootstrap-submenu.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/bootstrap-select.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/leaflet.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/map.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/fonts/font-awesome/css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/fonts/flaticon/font/flaticon.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/fonts/linearicons/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/jquery.mCustomScrollbar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/dropzone.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/magnific-popup.css' %}">
+
+<!-- Custom stylesheet -->
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/style.css' %}">
+<link rel="stylesheet" type="text/css" id="style_sheet" href="{% static 'webApp/css/skins/default.css' %}">
+
+<!-- Favicon icon -->
+<link rel="shortcut icon" href="https://storage.googleapis.com/theme-vessel/template-images/nest-html/assets/img/favicon.ico" type="image/x-icon" >
+
+<!-- Google fonts -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;900&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link rel="stylesheet" type="text/css" href="{% static 'webApp/css/ie10-viewport-bug-workaround.css' %}">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="{% static 'webApp/js/ie-emulation-modes-warning.js' %}"></script>
+
+
+
+</head>
+
+<body>
+
+
+   <!-- header starts here -->
+   {% include 'webApp/navfolder/header.html' %}
+   <!-- header stops here -->
+  
+        <!-- dontent starts here -->
+        {% block main_content %}
+
+
+
+        {% endblock %}
+        <!-- content stops here -->
+
+   
+
+
+
+   <!-- footer starts here -->
+   {% include 'webApp/navfolder/footer.html' %}
+
+  
+   <script src="{% static 'webApp/js/jquery-2.2.0.min.js' %}"></script>
+   <script src="{% static 'webApp/js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'webApp/js/bootstrap-submenu.js' %}"></script>
+   <script src="{% static 'webApp/js/rangeslider.js' %}"></script>
+   <script src="{% static 'webApp/js/jquery.mb.YTPlayer.js' %}"></script>
+   <script src="{% static 'webApp/js/wow.min.js' %}"></script>
+   <script src="{% static 'webApp/js/bootstrap-select.min.js' %}"></script>
+   <script src="{% static 'webApp/js/jquery.easing.1.3.js' %}"></script>
+   <script src="{% static 'webApp/js/jquery.scrollUp.js' %}"></script>
+   <script src="{% static 'webApp/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+   <script src="{% static 'webApp/js/leaflet.js' %}"></script>
+   <script src="{% static 'webApp/js/leaflet-providers.js' %}"></script>
+   <script src="{% static 'webApp/js/leaflet.markercluster.js' %}"></script>
+   <script src="{% static 'webApp/js/dropzone.js' %}"></script>
+   <script src="{% static 'webApp/js/jquery.filterizr.js' %}"></script>
+   <script src="{% static 'webApp/js/jquery.magnific-popup.min.js' %}"></script>
+   <script src="{% static 'webApp/js/maps.js' %}"></script>
+   <script src="{% static 'webApp/js/app.js' %}"></script>
+   
+   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   <script src="{% static 'webApp/js/ie10-viewport-bug-workaround.js' %}"></script>
+   <!-- Custom javascript -->
+   <script src="{% static 'webApp/js/ie10-viewport-bug-workaround.js' %}"></script>
+   
+   <script>
+	   var latitude = 51.541216;
+	   var longitude = -0.095678;
+	   var providerName = 'Hydda.Full';
+	   generateMap(latitude, longitude, providerName);
+   </script>
+
+</body>
+</html>
